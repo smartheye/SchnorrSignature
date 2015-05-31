@@ -16,13 +16,13 @@ public class SchnorrScheme {
     private final BigInteger publicKey;
     static final String digestAlgorithm = "SHA-256";
 
-    private static byte[] int2bin(int i) {
+    private static byte[] i2b(int i) {
         byte[] res = new byte[4];
-        int2bin(res, 0, i);
+        i2b(res, 0, i);
         return res;
     }
 
-    private static void int2bin(byte[] out, int offset, int i) {
+    private static void i2b(byte[] out, int offset, int i) {
         out[offset + 0] = (byte)(i >> 24);
         out[offset + 1] = (byte)(i >> 16 & 0xff);
         out[offset + 2] = (byte)(i >> 8 & 0xff);
@@ -44,7 +44,7 @@ public class SchnorrScheme {
         int p = 0;
         for(int i = 0; i < data.length; i++) {
             if (data[i] != null) {
-                byte[] len =  int2bin(data[i].length);
+                byte[] len =  i2b(data[i].length);
                 System.arraycopy(len, 0, res, p, len.length);
                 p += len.length;
                 System.arraycopy(data[i], 0, res, p, data[i].length);

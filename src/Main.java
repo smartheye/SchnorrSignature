@@ -232,7 +232,7 @@ public class Main extends JFrame {
                 if(signature != null && publicKeyArea2.getText().length() != 0) {
                     try {
                         BigInteger pubKey = new BigInteger(publicKeyArea2.getText());
-                        SchnorrScheme verify = new SchnorrVerify(pubKey);
+                        SchnorrScheme verify = new SchnorrScheme(pubKey);
                         if(verify.verify(signature)) {
                             System.out.println("OK");
 
